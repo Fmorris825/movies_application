@@ -1,11 +1,18 @@
 import { Col, Container, Image, Row } from "react-bootstrap";
 
-const MovieList = ({ movies }) => {
+const MovieList = (props) => {
+  const FavoriteComponent = props.favoriteComponent;
   return (
     <Row className="movie-scroll">
-      {movies.map((movie, index) => (
+      {props.movies.map((movie, index) => (
         <Col className="image-container">
           <Image className="m-1" src={movie.Poster} alt="movie" />
+          <Container
+            onClick={() => props.handleFavoritesClick(movie)}
+            className="overlay d-flex align-items-center justify-content-center"
+          >
+            <FavoriteComponent />
+          </Container>
         </Col>
       ))}
     </Row>

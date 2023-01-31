@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 import MovieList from "./components/MovieList/MovieList";
 import MovieListHeader from "./components/MovieListHeader/MovieListHeader";
 import SearchBox from "./components/SearchBox/SearchBox";
+import AddFavorite from "./components/AddFavorite/AddFavorite";
 import api_keys from "./api_keys.js";
-import { Col, Container, Row } from "react-bootstrap";
 
 function App() {
   const [movies, setmovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [favorites, setFavorites] = useState([]);
 
   const getMovieRequest = async (searchValue) => {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${api_keys.key}`;
@@ -27,6 +29,11 @@ function App() {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
+  const AddFavoriteMovie = (movie) => {
+    const newFavoriteList = [...favorites, movie];
+    setFavorites(newFavoriteList);
+  };
+
   return (
     <Col className="container-fluid movie-app">
       <Row>
@@ -34,7 +41,17 @@ function App() {
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </Row>
       <Row>
-        <MovieList movies={movies} />
+        <MovieList
+          movies={movies}
+          handleFavoritesClick={AddFavoriteMovie}
+          favoriteComponent={AddFavorite}
+        />
+      </Row>
+      <Row className="mt-4 mb-4">
+        <MovieListHeader heading="Favorites" />
+      </Row>
+      <Row>
+        <MovieList movies={favorites} />
       </Row>
     </Col>
   );
