@@ -23,8 +23,11 @@ body {
 
 .movie-scroll {
   width: auto;
+  height: auto;
   display: flex;
   flex-wrap: nowrap;
+  overflow: auto;
+  overflow-y: hidden;
 }
 
 .image-container:hover .overlay {

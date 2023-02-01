@@ -12,11 +12,13 @@ import AddFavorite from "./components/AddFavorite/AddFavorite";
 import RemoveFavorite from "./components/RemoveFavorite/RemoveFavorite";
 
 import api_keys from "./api_keys.js";
+import MovieCard from "./components/MovieCard/MovieCard";
 
 function App() {
   const [movies, setmovies] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("Avengers");
   const [favorites, setFavorites] = useState([]);
+  const [featureMovie, setFeatureMovie] = useState({});
 
   const getMovieRequest = async (searchValue) => {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${api_keys.key}`;
@@ -46,19 +48,26 @@ function App() {
     setFavorites(newFavoriteList);
     localStorage.setItem(newFavoriteList);
   };
+  console.log(movies);
 
-  console.log(favorites);
   return (
     <Col className="container-fluid movie-app">
-      <Row>
-        <MovieListHeader heading="Movies" />
+      <Row className="mt-4 mb-4">
+        <MovieListHeader heading="Featured Movie" />
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+      </Row>
+      <Row>
+        <MovieCard featureMovie={featureMovie} />
+      </Row>
+      <Row className="mt-4 mb-4">
+        <MovieListHeader heading="Movies" />
       </Row>
       <Row>
         <MovieList
           movies={movies}
           handleFavoritesClick={AddFavoriteMovie}
           favoriteComponent={AddFavorite}
+          setFeatureMovie={setFeatureMovie}
         />
       </Row>
       <Row className="mt-4 mb-4">
@@ -69,6 +78,7 @@ function App() {
           movies={favorites}
           handleFavoritesClick={RemoveFavoriteMovie}
           favoriteComponent={RemoveFavorite}
+          setFeatureMovie={setFeatureMovie}
         />
       </Row>
     </Col>

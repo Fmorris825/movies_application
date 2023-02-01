@@ -11,7 +11,7 @@ const SearchBox = ({ setSearchValue, value }) => {
   };
 
   return (
-    <Form className="col col-sm-4" onSubmit={handleSearchSubmit}>
+    <Form className="col col-sm-4 " onSubmit={handleSearchSubmit}>
       <FormControl
         className="form-control"
         value={value}

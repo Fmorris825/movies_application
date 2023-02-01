@@ -1,8 +1,10 @@
+import { Col } from "react-bootstrap";
+
 const MovieListHeader = ({ heading }) => {
   return (
-    <div className="col">
+    <Col>
       <h1>{heading}</h1>
-    </div>
+    </Col>
   );
 };
 
