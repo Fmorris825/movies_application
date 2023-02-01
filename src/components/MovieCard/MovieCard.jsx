@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import axios from "axios";
+import api_keys from "../../../api_keys";
 
 const MovieCard = (props) => {
   const [utellyFeatureMovie, setUtellyFeatureMovie] = useState({});
@@ -20,8 +21,7 @@ const MovieCard = (props) => {
             country: "us",
           },
           headers: {
-            "X-RapidAPI-Key":
-              "e79d90cae2msh5521f68907c95b5p178094jsncb7add5f2fc5",
+            "X-RapidAPI-Key": api_keys.rapidKey,
             "X-RapidAPI-Host":
               "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
           },

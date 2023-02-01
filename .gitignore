@@ -127,4 +127,4 @@ yarn-debug.log*
 yarn-error.log*
 
 #api key
-.api_keys.env
+api_keys.js

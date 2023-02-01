@@ -11,7 +11,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import AddFavorite from "./components/AddFavorite/AddFavorite";
 import RemoveFavorite from "./components/RemoveFavorite/RemoveFavorite";
 
-import api_keys from "./api_keys.js";
+import api_keys from "../api_keys";
 import MovieCard from "./components/MovieCard/MovieCard";
 
 function App() {
