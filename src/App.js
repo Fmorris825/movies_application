@@ -11,14 +11,22 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import AddFavorite from "./components/AddFavorite/AddFavorite";
 import RemoveFavorite from "./components/RemoveFavorite/RemoveFavorite";
 
-import api_keys from "../api_keys";
+import api_keys from "./api_keys";
 import MovieCard from "./components/MovieCard/MovieCard";
+import Carousel from "./components/Carousel/Carousel";
 
 function App() {
   const [movies, setmovies] = useState([]);
   const [searchValue, setSearchValue] = useState("Avengers");
   const [favorites, setFavorites] = useState([]);
-  const [featureMovie, setFeatureMovie] = useState({});
+  const [featureMovie, setFeatureMovie] = useState({
+    Title: "The Avengers",
+    Year: "2012",
+    imdbID: "tt0848228",
+    Type: "movie",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+  });
 
   const getMovieRequest = async (searchValue) => {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${api_keys.key}`;
@@ -48,7 +56,9 @@ function App() {
     setFavorites(newFavoriteList);
     localStorage.setItem(newFavoriteList);
   };
+
   console.log(movies);
+  console.log(featureMovie);
 
   return (
     <Col className="container-fluid movie-app">
@@ -63,13 +73,21 @@ function App() {
         <MovieListHeader heading="Movies" />
       </Row>
       <Row>
-        <MovieList
+        <Carousel
           movies={movies}
           handleFavoritesClick={AddFavoriteMovie}
           favoriteComponent={AddFavorite}
           setFeatureMovie={setFeatureMovie}
         />
       </Row>
+      {/* <Row>
+        <MovieList
+          movies={movies}
+          handleFavoritesClick={AddFavoriteMovie}
+          favoriteComponent={AddFavorite}
+          setFeatureMovie={setFeatureMovie}
+        />
+      </Row> */}
       <Row className="mt-4 mb-4">
         <MovieListHeader heading="Favorites" />
       </Row>

@@ -37,11 +37,12 @@ body {
 .overlay {
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
-  width: 91%;
+  width: 100%;
   transition: 0.5s ease;
   opacity: 0;
-  bottom: 20px;
+  bottom: 0;
   font-size: 20px;
   padding: 20px;
   text-align: center;
+  margin-left: 4px;
 }
