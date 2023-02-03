@@ -62,14 +62,20 @@ function App() {
 
   return (
     <Col className="container-fluid movie-app">
-      <Row className="mt-4 mb-4">
-        <MovieListHeader heading="Featured Movie" />
+      <Row className=" mb-4">
+        <MovieListHeader heading="What to Watchlist" />
         <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
       </Row>
-      <Row>
-        <MovieCard featureMovie={featureMovie} />
+      <Row className="m-4">
+        <MovieListHeader heading="Featured Movie" />
       </Row>
-      <Row className="mt-4 mb-4">
+      <Row>
+        <MovieCard
+          featureMovie={featureMovie}
+          favoriteComponent={AddFavorite}
+        />
+      </Row>
+      <Row className="m-4">
         <MovieListHeader heading="Movies" />
       </Row>
       <Row>
@@ -88,7 +94,7 @@ function App() {
           setFeatureMovie={setFeatureMovie}
         />
       </Row> */}
-      <Row className="mt-4 mb-4">
+      <Row className="m-4">
         <MovieListHeader heading="Favorites" />
       </Row>
       <Row>

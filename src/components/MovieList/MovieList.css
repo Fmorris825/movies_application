@@ -1,15 +1,10 @@
-.featuredMovieImg {
-  height: auto;
-  width: 350px;
-}
-
-.overlayCard {
+.overlay {
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
-  width: 350px;
+  width: 300px;
   transition: 0.5s ease;
   opacity: 0;
-  bottom: 5px;
+  bottom: 15px;
   font-size: 20px;
   padding: 20px;
   text-align: center;

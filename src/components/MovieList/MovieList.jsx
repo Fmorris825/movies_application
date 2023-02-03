@@ -1,4 +1,5 @@
 import { Col, Container, Image, Row } from "react-bootstrap";
+import "./MovieList.css";
 
 const MovieList = (props) => {
   const FavoriteComponent = props.favoriteComponent;
@@ -16,7 +17,7 @@ const MovieList = (props) => {
             onClick={() => props.handleFavoritesClick(movie)}
             className="overlay d-flex align-items-center justify-content-center"
           >
-            {/* <FavoriteComponent /> */}
+            <FavoriteComponent />
           </Container>
         </Col>
       ))}

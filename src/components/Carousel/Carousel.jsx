@@ -45,7 +45,7 @@ const Carousel = (props) => {
               />
               <Container
                 onClick={() => props.handleFavoritesClick(movie)}
-                className="overlay d-flex align-items-center justify-content-center"
+                className="overlayTop d-flex align-items-center justify-content-center"
               >
                 <FavoriteComponent />
               </Container>

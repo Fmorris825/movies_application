@@ -67,6 +67,8 @@ const MovieCard = (props) => {
     },
   });
 
+  const FavoriteComponent = props.favoriteComponent;
+
   useEffect(() => {
     getFeatureMovie();
   }, [props.featureMovie]);
@@ -100,26 +102,36 @@ const MovieCard = (props) => {
   return utellyFeatureMovie.collection.locations ? (
     <>
       <Col>
-        <Row>
-          <h1>{props.featureMovie.Title} </h1>
-        </Row>
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <Image
-              className="featuredMovieImg"
-              src={props.featureMovie.Poster}
-            />
-          </Col>
-          <Col>
-            <h1>
-              {utellyFeatureMovie.collection.locations.map(
-                (location, index) => {
-                  return <h1>{location.display_name}</h1>;
-                }
-              )}
-            </h1>
-          </Col>
-        </Row>
+        <Container>
+          <Row>
+            <Col className="d-flex justify-content-center ">
+              <div className="image-container m-3">
+                <Image
+                  className="featuredMovieImg"
+                  src={props.featureMovie.Poster}
+                />
+                <Container
+                  onClick={() => props.handleFavoritesClick(props.featureMovie)}
+                  className="overlayCard d-flex align-items-center justify-content-center"
+                >
+                  <FavoriteComponent />
+                </Container>
+              </div>
+            </Col>
+            <Col>
+              <Row>
+                <h1>{props.featureMovie.Title} </h1>
+              </Row>
+              <h1>
+                {utellyFeatureMovie.collection.locations.map(
+                  (location, index) => {
+                    return <h1>{location.display_name}</h1>;
+                  }
+                )}
+              </h1>
+            </Col>
+          </Row>
+        </Container>
       </Col>
     </>
   ) : (
@@ -130,10 +142,18 @@ const MovieCard = (props) => {
         </Row>
         <Row>
           <Col className="d-flex justify-content-center">
-            <Image
-              className="featuredMovieImg"
-              src={props.featureMovie.Poster}
-            />
+            <div className="image-container m-3">
+              <Image
+                className="featuredMovieImg"
+                src={props.featureMovie.Poster}
+              />
+              <Container
+                onClick={() => props.handleFavoritesClick(props.featureMovie)}
+                className="overlayCard d-flex align-items-center justify-content-center"
+              >
+                <FavoriteComponent />
+              </Container>
+            </div>
           </Col>
           <Col>
             <h1>
