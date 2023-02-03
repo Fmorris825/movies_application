@@ -1,0 +1,24 @@
+.actorList {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.list {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+li {
+  padding-right: 10px;
+}
+
+.movieDesc {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+}

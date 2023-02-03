@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap";
 const MovieListHeader = ({ heading }) => {
   return (
     <Col>
-      <h1>{heading}</h1>
+      <h1 className="headers">{heading}</h1>
     </Col>
   );
 };

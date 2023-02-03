@@ -78,7 +78,7 @@ function App() {
       <Row className="m-4">
         <MovieListHeader heading="Movies" />
       </Row>
-      <Row>
+      <Row id="results">
         <Carousel
           movies={movies}
           handleFavoritesClick={AddFavoriteMovie}
